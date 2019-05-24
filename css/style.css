@@ -1,25 +1,23 @@
+body
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .profilePic{
     max-width: 500px;
     height: 100px;
     border-radius: 50%;
 
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
 
-
 /*Desktop*/
-@media only screen and (max-width: 768px)
+@media only screen and (min-width: 768px)
 {
-    body
-    {
-        background-color: lightblue;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     .profilePic{
         max-width: 500px;
         height: 100px;
