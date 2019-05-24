@@ -6,17 +6,16 @@ axios.get(url)
     .catch((error) => console.warn(error));
 
 function montaPortfolio(response){
-    let user = response.data.login;
-    let name = response.data.name;
-    let avatar = response.data.avatar_url;
-    console.log(avatar);
-
-    let myDiv = document.getElementById('img');
-
-    let imgElement = document.createElement('img');
-    imgElement.setAttribute('src', avatar);
-
-    myDiv.appendChild(imgElement);
-
-
+    $addProfileImage(response.data.avatar_url);
 }
+
+$(function(){
+    $addProfileImage = function(avatarLink){
+        let imgElement = document.createElement('img');
+        imgElement.setAttribute('src', avatarLink);
+        imgElement.setAttribute('id', 'profilePic');
+
+        $('#img').append(imgElement);
+        $('#profilePic').addClass('profilePic');
+    }
+});
