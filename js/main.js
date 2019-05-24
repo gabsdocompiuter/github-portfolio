@@ -10,7 +10,7 @@ function montaPortfolio(response){
     $addProfileImage(response.data.avatar_url);
     let user = response.data.login;
     let bio = response.data.bio;
-    $addBio(user, nome, bio);
+    $addBio(user, bio);
 }
 
 $(function(){
@@ -24,15 +24,16 @@ $(function(){
     }
 
     $addBio = function(user, bio){
-        $('#info').append($addParagraph(user));
-        $('#info').append($addParagraph(bio));
+        $addParagraph('info', user, 'profileUser');
+        $addParagraph('info', bio, 'profileBio');
     }
 
-    $addParagraph = function(text){
-        let element = document.createElement('p');
-        let elementText = document.createTextNode(text);
-        element.appendChild(elementText);
+    $addParagraph = function(parent, texto, textClass){
+        let parentDiv = `#${parent}`;
 
-        return element;
+        $('<p/>', {
+            text: `${texto}`,
+            class: textClass
+        }).appendTo(parentDiv);
     }
 });

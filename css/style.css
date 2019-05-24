@@ -34,4 +34,14 @@ body{
         height: 100px;
         border-radius: 50%;
     }
+
+    .profileUser{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .profileBio{
+        margin-top: 7;
+    }
 }
