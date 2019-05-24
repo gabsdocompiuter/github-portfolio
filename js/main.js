@@ -6,7 +6,12 @@ axios.get(url)
     .catch((error) => console.warn(error));
 
 function montaPortfolio(response){
+    
     $addProfileImage(response.data.avatar_url);
+    let user = response.data.user;
+    let nome = response.data.nome;
+    let bio = response.data.bio;
+    $addBio(user, nome, bio);
 }
 
 $(function(){
@@ -15,7 +20,15 @@ $(function(){
         imgElement.setAttribute('src', avatarLink);
         imgElement.setAttribute('id', 'profilePic');
 
-        $('#img').append(imgElement);
+        $('#info').append(imgElement);
         $('#profilePic').addClass('profilePic');
+    }
+
+    $addBio = function(user, nome, bio){
+        let prgElement = document.createElement('p');
+        let prgText = document.createTextNode('teste');
+        prgElement.appendChild(prgText);
+
+        $('#info').append(prgElement);
     }
 });

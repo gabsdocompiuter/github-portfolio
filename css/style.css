@@ -1,12 +1,9 @@
-body
-{
+body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.profilePic{
-    max-width: 500px;
-    height: 100px;
-    border-radius: 50%;
+.profileInfo{
+    text-align: center;
 
     position: fixed;
     top: 10%;
@@ -15,18 +12,27 @@ body
     transform: translate(-50%, -50%);
 }
 
+.profilePic{
+    max-width: 500px;
+    height: 100px;
+    border-radius: 50%;
+}
+
 /*Desktop*/
-@media only screen and (min-width: 768px)
-{
+@media only screen and (min-width: 768px){
+    .profileInfo{
+        text-align: center;
+
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+    }
+
     .profilePic{
         max-width: 500px;
         height: 100px;
         border-radius: 50%;
-    
-        position: fixed;
-        top: 10%;
-        left: 50%;
-        /* bring your own prefixes */
-        transform: translate(-50%, -50%);
     }
 }
