@@ -8,8 +8,7 @@ axios.get(url)
 function montaPortfolio(response){
     
     $addProfileImage(response.data.avatar_url);
-    let user = response.data.user;
-    let nome = response.data.nome;
+    let user = response.data.login;
     let bio = response.data.bio;
     $addBio(user, nome, bio);
 }
@@ -24,11 +23,16 @@ $(function(){
         $('#profilePic').addClass('profilePic');
     }
 
-    $addBio = function(user, nome, bio){
-        let prgElement = document.createElement('p');
-        let prgText = document.createTextNode('teste');
-        prgElement.appendChild(prgText);
+    $addBio = function(user, bio){
+        $('#info').append($addParagraph(user));
+        $('#info').append($addParagraph(bio));
+    }
 
-        $('#info').append(prgElement);
+    $addParagraph = function(text){
+        let element = document.createElement('p');
+        let elementText = document.createTextNode(text);
+        element.appendChild(elementText);
+
+        return element;
     }
 });
