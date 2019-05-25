@@ -91,6 +91,32 @@ $(function(){
         }).appendTo(parentDiv);
     }
 
+
+    $addIconText = function(ico, text){
+        let iconDiv = document.createElement('div');
+
+        let iconElement = document.createElement('i');
+        iconElement.setAttribute('class', `fas fa-${ico}`);
+
+        let textNode = document.createTextNode(` ${text}`);
+        
+        iconDiv.appendChild(iconElement);
+        iconDiv.appendChild(textNode);
+        
+        return iconDiv;
+    }
+
+    $addRepositoryInfo = function(parent, language, stars, forks){
+        let infoDiv = document.createElement('div');
+        infoDiv.setAttribute('class', 'infoDiv');
+        
+        infoDiv.appendChild($addIconText('laptop-code', language))
+        infoDiv.appendChild($addIconText('star', stars));
+        infoDiv.appendChild($addIconText('code-branch', forks));
+
+        $(`#${parent}`).append(infoDiv);
+    }
+
     $addRepository = function(name, description, language, stars, forks, isFork){
         if(isFork) return;
 
@@ -105,5 +131,6 @@ $(function(){
         $addRepositoryDiv(name);    
         $addRepositoryHeader(name);
         $addParagraph(name, description);
+        $addRepositoryInfo(name, language, stars, forks);
     }
 });
