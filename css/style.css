@@ -1,21 +1,5 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.profileInfo{
-    text-align: center;
-
-    position: fixed;
-    
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, 0%);
-}
-
-.profilePic{
-    max-width: 500px;
-    height: 100px;
-    border-radius: 50%;
+:root{
+    --profile-size: 300px;
 }
 
 /*Desktop*/
@@ -23,16 +7,33 @@ body{
     body{
         background-image: url("../img/bg.jpg");
         background-size: 100%;
+        background-repeat: no-repeat;
         color:white;
+
+    }
+
+    .row{
+        display: table-row;
+    }
+
+    .infoContainer{
+        margin-left: 10px;
+        border: solid 4px green;
+        height: 95vh;
+        
+        width: var(--profile-size);
+        display: table-cell;
+        position: fixed;
     }
 
     .profileInfo{
         text-align: center;
 
-        position: fixed;
-        left: 50%;
-        /* bring your own prefixes */
-        transform: translate(-50%, 0%);
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 
     .profilePic{
@@ -42,12 +43,28 @@ body{
     }
 
     .profileUser{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        /*font-weight: bold;*/
+        font-size: 4ex;
         margin: 0;
     }
 
     .profileBio{
         margin-top: 7;
+        
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 2.5ex;
+
+        text-align: left;
+    }
+
+    .repoContainer{
+        padding-left: var(--profile-size);
+    }
+    .repos{
+        display: table-cell;
+        border: solid 4px red;
+        width: 200px;
+        height: 800px;
     }
 }
