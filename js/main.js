@@ -1,18 +1,27 @@
 let user = 'gmonteeeiro';
 
+let qtdRepos;
+
 axios.get(`https://api.github.com/users/${user}`)
-    .then(montaProfileInfo)
-    .catch((error) => console.warn(error));
+     .then(montaProfileInfo)
+     .catch((error) => console.warn(error));
 
 axios.get(`https://api.github.com/users/${user}/repos`)
     .then(montaRespositories)
     .catch((error) => console.warn(error));
 
 function montaProfileInfo(response){
+    qtdRepos = response.data.public_repos;
+
     $addProfileImage(response.data.avatar_url);
-    let user = response.data.login;
+    
+    let name = response.data.name
+    name = name == null ? response.data.login : name;
+
     let bio = response.data.bio;
-    $addBio(user, bio);
+    bio = bio == null ? '' : bio;
+
+    $addBio(name, bio);
 }
 
 function montaRespositories(response){
@@ -26,7 +35,8 @@ function montaRespositories(response){
 
         $addRepository();
     }
-    console.log(response.data);
+
+    if (qtdRepos % 2 != 0) $addRepository();
 }
 
 $(function(){
@@ -39,8 +49,8 @@ $(function(){
         $('#profilePic').addClass('profilePic');
     }
 
-    $addBio = function(user, bio){
-        $addParagraph('info', user, 'profileUser');
+    $addBio = function(name, bio){
+        $addParagraph('info', name, 'profileUser');
         $addParagraph('info', bio, 'profileBio');
     }
 

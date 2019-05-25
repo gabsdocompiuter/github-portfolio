@@ -1,8 +1,9 @@
 :root{
-    --profile-size: 300px;
+    --profile-width: 300px;
+    --profile-height: 95vh;
 
     /*profile-size + 15*/
-    --repositories-magin-left: 315px;
+    --repositories-magin-left: calc(var(--profile-width) + 15px);
 }
 
 /*Desktop*/
@@ -13,24 +14,20 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         color:white;
-
-    }
-
-    .row{
-        display: table-row;
     }
 
     .infoContainer{
+        position: fixed;
+        float: left;
         margin-left: 10px;
         border: solid 4px green;
-        height: 95vh;
         
-        width: var(--profile-size);
-        display: table-cell;
-        position: fixed;
+        height: var(--profile-height);
+        width: var(--profile-width);
     }
-
+    
     .profileInfo{
+        width: var(--profile-width);
         text-align: center;
 
         margin: 0;
@@ -63,20 +60,21 @@
     }
 
     .repoContainer{
-        padding-left: var(--repositories-magin-left);
+        height: 100%;
     }
-    .repos{
-        display: table-cell;
-        border: solid 4px red;
-        
-        height: 800px;
 
+    .repos{
+        border: solid 4px red;
+        margin-left: var(--repositories-magin-left);
         columns: 2;
+        column-gap: 40px;
+        padding: 20px;
     }
 
     .testeRepo{
+        margin-bottom: 20px;
         border: solid 4px blue;
-        width: 85%;
+        
         height: 100px;
     }
 }
