@@ -20,6 +20,12 @@ body{
 
 /*Desktop*/
 @media only screen and (min-width: 768px){
+    body{
+        background-image: url("../img/bg.jpg");
+        background-size: 100%;
+        color:white;
+    }
+
     .profileInfo{
         text-align: center;
 
