@@ -76,9 +76,15 @@
         border: solid 4px blue;
         
         height: 100px;
+        padding: 0;
     }
-
+    
     .divRepo h3{
-        /*font-size: 20em;*/
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+    
+    .divRepo p{
+        margin: 0;
     }
 }

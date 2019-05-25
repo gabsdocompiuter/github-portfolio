@@ -104,5 +104,6 @@ $(function(){
 
         $addRepositoryDiv(name);    
         $addRepositoryHeader(name);
+        $addParagraph(name, description);
     }
 });
