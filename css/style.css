@@ -1,5 +1,8 @@
 :root{
     --profile-size: 300px;
+
+    /*profile-size + 15*/
+    --repositories-magin-left: 315px;
 }
 
 /*Desktop*/
@@ -8,6 +11,7 @@
         background-image: url("../img/bg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         color:white;
 
     }
@@ -59,12 +63,20 @@
     }
 
     .repoContainer{
-        padding-left: var(--profile-size);
+        padding-left: var(--repositories-magin-left);
     }
     .repos{
         display: table-cell;
         border: solid 4px red;
-        width: 200px;
+        
         height: 800px;
+
+        columns: 2;
+    }
+
+    .testeRepo{
+        border: solid 4px blue;
+        width: 85%;
+        height: 100px;
     }
 }

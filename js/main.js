@@ -1,16 +1,32 @@
+let user = 'gmonteeeiro';
 
-let url = 'https://api.github.com/users/gmonteeeiro';
-
-axios.get(url)
-    .then(montaPortfolio)
+axios.get(`https://api.github.com/users/${user}`)
+    .then(montaProfileInfo)
     .catch((error) => console.warn(error));
 
-function montaPortfolio(response){
-    
+axios.get(`https://api.github.com/users/${user}/repos`)
+    .then(montaRespositories)
+    .catch((error) => console.warn(error));
+
+function montaProfileInfo(response){
     $addProfileImage(response.data.avatar_url);
     let user = response.data.login;
     let bio = response.data.bio;
     $addBio(user, bio);
+}
+
+function montaRespositories(response){
+    for(item of response.data){
+        console.log(item.name);
+        console.log(item.description);
+        console.log(item.language);
+        console.log(item.stargazers_count);
+        console.log(item.forks_count);
+        console.log(item.fork);
+
+        $addRepository();
+    }
+    console.log(response.data);
 }
 
 $(function(){
@@ -35,5 +51,13 @@ $(function(){
             text: `${texto}`,
             class: textClass
         }).appendTo(parentDiv);
+    }
+
+    $addRepository = function(){
+        $('<div/>',{
+            class: 'testeRepo'
+        }).appendTo('#repos');
+
+        console.log('ok');
     }
 });
