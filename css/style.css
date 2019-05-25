@@ -71,10 +71,14 @@
         padding: 20px;
     }
 
-    .testeRepo{
+    .divRepo{
         margin-bottom: 20px;
         border: solid 4px blue;
         
         height: 100px;
+    }
+
+    .divRepo h3{
+        /*font-size: 20em;*/
     }
 }

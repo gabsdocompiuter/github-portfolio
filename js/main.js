@@ -2,17 +2,22 @@ let user = 'gmonteeeiro';
 
 let qtdRepos;
 
-axios.get(`https://api.github.com/users/${user}`)
-     .then(montaProfileInfo)
-     .catch((error) => console.warn(error));
+getProfile();
+getRepositories();
 
-axios.get(`https://api.github.com/users/${user}/repos`)
-    .then(montaRespositories)
-    .catch((error) => console.warn(error));
+async function getProfile(){
+    await axios.get(`https://api.github.com/users/${user}`)
+            .then(montaProfileInfo)
+            .catch((error) => console.warn(error));
+}
+
+async function getRepositories(){
+    await axios.get(`https://api.github.com/users/${user}/repos`)
+        .then(montaRespositories)
+        .catch((error) => console.warn(error));
+}
 
 function montaProfileInfo(response){
-    qtdRepos = response.data.public_repos;
-
     $addProfileImage(response.data.avatar_url);
     
     let name = response.data.name
@@ -33,7 +38,14 @@ function montaRespositories(response){
         console.log(item.forks_count);
         console.log(item.fork);
 
-        $addRepository();
+        $addRepository(
+            item.name,
+            item.description,
+            item.language,
+            item.stargazers_count,
+            item.forks_count,
+            item.fork
+        );
     }
 
     if (qtdRepos % 2 != 0) $addRepository();
@@ -63,11 +75,34 @@ $(function(){
         }).appendTo(parentDiv);
     }
 
-    $addRepository = function(){
-        $('<div/>',{
-            class: 'testeRepo'
-        }).appendTo('#repos');
+    $addRepositoryDiv = function(name){
+        let repoDiv = document.createElement('div');
+        repoDiv.setAttribute('id', name);
 
-        console.log('ok');
+        $('#repos').append(repoDiv);
+        $(`#${name}`).addClass('divRepo');
+    }
+
+    $addRepositoryHeader = function(name){
+        let parentDiv = `#${name}`;
+
+        $('<h3/>', {
+            text: `${name}`,
+        }).appendTo(parentDiv);
+    }
+
+    $addRepository = function(name, description, language, stars, forks, isFork){
+        if(isFork) return;
+
+        //Caso a quantidade de repositórios for ímpar, adiciona div vazia
+        if(name == null){
+            $addRepositoryDiv();
+            return;
+        }
+        
+        qtdRepos++;
+
+        $addRepositoryDiv(name);    
+        $addRepositoryHeader(name);
     }
 });
