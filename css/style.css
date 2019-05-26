@@ -83,6 +83,11 @@
         padding: 20px;
     }
 
+    .divEmptyRepo{
+        margin-bottom: 20px;
+        height: 150px;
+    }
+
     .divRepo{
         margin-bottom: 20px;
         padding-left: 15px;

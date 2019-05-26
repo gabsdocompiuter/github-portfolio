@@ -75,6 +75,12 @@ $(function(){
         $(`#bg${name}`).addClass('divRepo');
     }
 
+    $addEmptyRepository = function(){
+        $(`<div/>`, {
+            class: 'divEmptyRepo'
+        }).appendTo('#repos');
+    }
+
     $addRepositoryDiv = function(name){
         let repoDiv = document.createElement('div');
         repoDiv.setAttribute('id', name);
@@ -88,8 +94,9 @@ $(function(){
 
         
         if(isFork){
-            $(`<i class='fas fa-code-branch'></i>`, {
-                style: 'display: inline-block'
+            $(`<i/>`, {
+                style: 'display: inline-block',
+                class: 'fas fa-code-branch'
             }).appendTo(parentDiv);
         }
 
@@ -129,7 +136,7 @@ $(function(){
     $addRepository = function(name, description, language, stars, forks, isFork){
         //Caso a quantidade de repositórios for ímpar, adiciona div vazia
         if(name == null){
-            $addRepositoryBackground();
+            $addEmptyRepository();
             return;
         }
 
