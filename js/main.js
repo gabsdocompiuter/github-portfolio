@@ -16,6 +16,7 @@ async function getRepositories(){
 }
 
 function montaProfileInfo(response){
+    $addNameToTitle(response.data.name);
     $addProfileImage(response.data.avatar_url);
     
     let name = response.data.name
@@ -44,6 +45,10 @@ function montaRespositories(response){
 }
 
 $(function(){
+    $addNameToTitle = function(name){
+        $('title').text(`Portifolio - ${name}`);
+    }
+
     $addProfileImage = function(avatarLink){
         let imgElement = document.createElement('img');
         imgElement.setAttribute('src', avatarLink);
@@ -136,7 +141,7 @@ $(function(){
     }
 
     $addRepository = function(name, description, language, stars, forks, isFork){
-        //Caso a quantidade de repositórios for ímpar, adiciona div vazia
+        //Caso a quantidade de repositÃ³rios for Ã­mpar, adiciona div vazia
         if(name == null){
             $addEmptyRepository();
             return;
