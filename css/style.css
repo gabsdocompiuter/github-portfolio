@@ -26,12 +26,27 @@ body{
 
 /*Desktop*/
 @media only screen and (min-width: 768px){
+    html {
+        height: 100%;
+        box-sizing: border-box;
+    }
+      
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
     body{
         background-image: url("../img/bg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
         color:white;
+
+        position: relative;
+        padding-bottom: 6rem;
+        min-height: 100%;
     }
 
     .infoContainer{
@@ -61,7 +76,6 @@ body{
     }
 
     .profileUser{
-        /*font-weight: bold;*/
         font-size: 4ex;
         margin: 0;
     }
@@ -139,10 +153,11 @@ body{
     }
 
     .footer{
-        width: 100%;
-    }
-
-    .footer p{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
         text-align: center;
     }
 
