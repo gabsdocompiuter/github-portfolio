@@ -36,7 +36,8 @@ function montaRespositories(response){
             item.language,
             item.stargazers_count,
             item.forks_count,
-            item.fork
+            item.fork,
+            item.html_url
         );
     }
 
@@ -72,9 +73,9 @@ $(function(){
         }).appendTo(parentDiv);
     }
 
-    $addRepositoryBackground = function(name){
+    $addRepositoryBackground = function(name, link){
         let repoLink = document.createElement('a');
-        repoLink.setAttribute('href', 'http://google.com');
+        repoLink.setAttribute('href', link);
         repoLink.setAttribute('target', '_blank');
 
         let repoDiv = document.createElement('div');
@@ -145,7 +146,7 @@ $(function(){
         $(`#${parent}`).append(infoDiv);
     }
 
-    $addRepository = function(name, description, language, stars, forks, isFork){
+    $addRepository = function(name, description, language, stars, forks, isFork, link){
         //Caso a quantidade de repositórios for ímpar, adiciona div vazia
         if(name == null){
             $addEmptyRepository();
@@ -154,7 +155,7 @@ $(function(){
 
         description = description == null ? '' : description;
 
-        $addRepositoryBackground(name);
+        $addRepositoryBackground(name, link);
         $addRepositoryDiv(name);
         $addRepositoryHeader(name, isFork);
         $addParagraph(name, description);
