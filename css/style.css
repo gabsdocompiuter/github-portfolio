@@ -21,7 +21,98 @@
 
 body{
     font-family: Rubik, Arial, Helvetica, sans-serif;
+    color: white;
+
+    background: url("../img/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.infoContainer{
+    width: 100%;
+}
+
+.profileInfo{
+    text-align: center;
+}
+
+.profilePic{
+    max-width: 500px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profileUser{
+    font-size: 4ex;
+    margin: 0;
+}
+
+.profileBio{
+    margin-top: 7;
     
+    font-size: 2.5ex;
+}
+
+.divRepo{
+    margin-bottom: 20px;
+    padding-left: 15px;
+
+    background-color: black;
+    border-radius: 10px;
+    opacity: 0.7;
+
+    position: relative;
+    height: 150px;
+}
+
+.divRepo:hover {
+    opacity: 1.0;
+    transition: 0.5s;
+    transform: scale(1.01);
+}
+
+.divRepo i{
+    color: var(--text-color) !important;
+}
+
+.divRepo h3{
+    color: var(--text-color) !important;
+
+    margin-bottom: 3px;
+}
+
+.divRepo p{
+    display: block;
+    color: var(--text-color) !important;
+    
+    margin-top: 0;
+    padding-bottom: 15px;
+}
+
+.repoInsideDiv{
+    position: absolute;
+    top: calc(50% - 10px);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.infoDiv div{
+    color: var(--text-color) !important;
+
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+}
+
+.footer a{
+    text-decoration: underline;
+    color: gray !important;
 }
 
 /*Desktop*/
@@ -38,13 +129,6 @@ body{
     }
 
     body{
-        background-image: url("../img/bg.jpg");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-
-        color:white;
-
         position: relative;
         padding-bottom: 6rem;
         min-height: 100%;
@@ -61,31 +145,12 @@ body{
     
     .profileInfo{
         width: var(--profile-width);
-        text-align: center;
-
+        
         margin: 0;
         position: absolute;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-    }
-
-    .profilePic{
-        max-width: 500px;
-        height: 100px;
-        border-radius: 50%;
-    }
-
-    .profileUser{
-        font-size: 4ex;
-        margin: 0;
-    }
-
-    .profileBio{
-        margin-top: 7;
-        
-        font-size: 2.5ex;
-
     }
 
     .repoContainer{
@@ -102,56 +167,7 @@ body{
     .divEmptyRepo{
         margin-bottom: 20px;
         height: 150px;
-    }
-
-    .divRepo{
-        margin-bottom: 20px;
-        padding-left: 15px;
-
-        background-color: black;
-        border-radius: 10px;
-        opacity: 0.7;
-
-        position: relative;
-        height: 150px;
-    }
-    .divRepo:hover {
-        opacity: 1.0;
-        transition: 0.5s;
-        transform: scale(1.01);
-      }
-    
-    .repoInsideDiv{
-        position: absolute;
-        top: calc(50% - 10px);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-
-    }
-
-    .divRepo i{
-        color: var(--text-color) !important;
-    }
-    
-    .divRepo h3{
-        color: var(--text-color) !important;
-
-        margin-bottom: 3px;
-    }
-    
-    .divRepo p{
-        color: var(--text-color) !important;
-
-        margin-top: 0;
-        padding-bottom: 15px;
-    }
-    
-    .infoDiv div{
-        color: var(--text-color) !important;
-
-        display: inline-block;
-        margin-right: 15px;
-    }
+    }  
 
     .footer{
         position: absolute;
@@ -160,10 +176,5 @@ body{
         left: 0;
         
         text-align: center;
-    }
-
-    .footer a{
-        text-decoration: underline;
-        color: gray !important;
     }
 }
