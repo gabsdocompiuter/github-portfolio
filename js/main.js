@@ -1,4 +1,4 @@
-let user = 'gmonteeeiro';
+let user = 'alexei350';
 
 getProfile();
 getRepositories();
@@ -126,7 +126,9 @@ $(function(){
         let infoDiv = document.createElement('div');
         infoDiv.setAttribute('class', 'infoDiv');
         
-        infoDiv.appendChild($addIconText('laptop-code', language))
+        if(language != null){
+            infoDiv.appendChild($addIconText('laptop-code', language));
+        }
         infoDiv.appendChild($addIconText('star', stars));
         infoDiv.appendChild($addIconText('code-branch', forks));
 
