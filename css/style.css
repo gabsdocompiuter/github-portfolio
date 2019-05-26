@@ -137,4 +137,17 @@ body{
         display: inline-block;
         margin-right: 15px;
     }
+
+    .footer{
+        width: 100%;
+    }
+
+    .footer p{
+        text-align: center;
+    }
+
+    .footer a{
+        text-decoration: underline;
+        color: gray !important;
+    }
 }
