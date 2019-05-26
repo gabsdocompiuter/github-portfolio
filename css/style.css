@@ -41,6 +41,8 @@ body{
 .profilePic{
     max-width: 500px;
     height: 100px;
+
+    -moz-border-radius: 50%;
     border-radius: 50%;
 }
 
@@ -55,16 +57,26 @@ body{
     font-size: 2.5ex;
 }
 
+a:link{ 
+    text-decoration:none; 
+} 
+
 .divRepo{
     margin-bottom: 20px;
     padding-left: 15px;
 
     background-color: black;
-    border-radius: 10px;
     opacity: 0.7;
 
-    position: relative;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    /* position: relative; */
     height: 150px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column
 }
 
 .divRepo:hover {
@@ -89,13 +101,6 @@ body{
     
     margin-top: 0;
     padding-bottom: 15px;
-}
-
-.repoInsideDiv{
-    position: absolute;
-    top: calc(50% - 10px);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .infoDiv div{
@@ -159,9 +164,13 @@ body{
 
     .repos{
         margin-left: var(--repositories-magin-left);
-        columns: 2;
-        column-gap: 40px;
         padding: 20px;
+
+        -moz-columns: 2;
+        columns: 2;
+        
+        -moz-column-gap: 40px;
+        column-gap: 40px;
     }
 
     .divEmptyRepo{
