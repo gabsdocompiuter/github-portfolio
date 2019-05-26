@@ -136,7 +136,7 @@ $(function(){
     }
 
     $addRepository = function(name, description, language, stars, forks, isFork){
-        //Caso a quantidade de repositórios for ímpar, adiciona div vazia
+        //Caso a quantidade de repositÃ³rios for Ã­mpar, adiciona div vazia
         if(name == null){
             $addEmptyRepository();
             return;
