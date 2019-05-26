@@ -16,6 +16,7 @@ async function getRepositories(){
 }
 
 function montaProfileInfo(response){
+    $addNameToTitle(response.data.name);
     $addProfileImage(response.data.avatar_url);
     
     let name = response.data.name
@@ -44,6 +45,10 @@ function montaRespositories(response){
 }
 
 $(function(){
+    $addNameToTitle = function(name){
+        $('title').text(`Portifolio - ${name}`);
+    }
+
     $addProfileImage = function(avatarLink){
         let imgElement = document.createElement('img');
         imgElement.setAttribute('src', avatarLink);
