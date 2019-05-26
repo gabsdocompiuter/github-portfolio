@@ -1,7 +1,5 @@
 let user = 'gmonteeeiro';
 
-let qtdRepos;
-
 getProfile();
 getRepositories();
 
@@ -31,13 +29,6 @@ function montaProfileInfo(response){
 
 function montaRespositories(response){
     for(item of response.data){
-        console.log(item.name);
-        console.log(item.description);
-        console.log(item.language);
-        console.log(item.stargazers_count);
-        console.log(item.forks_count);
-        console.log(item.fork);
-
         $addRepository(
             item.name,
             item.description,
@@ -48,6 +39,7 @@ function montaRespositories(response){
         );
     }
 
+    let qtdRepos = response.data.length;
     if (qtdRepos % 2 != 0) $addRepository();
 }
 
@@ -75,22 +67,39 @@ $(function(){
         }).appendTo(parentDiv);
     }
 
+    $addRepositoryBackground = function(name){
+        let repoDiv = document.createElement('div');
+        repoDiv.setAttribute('id', `bg${name}`);
+
+        $('#repos').append(repoDiv);
+        $(`#bg${name}`).addClass('divRepo');
+    }
+
     $addRepositoryDiv = function(name){
         let repoDiv = document.createElement('div');
         repoDiv.setAttribute('id', name);
 
-        $('#repos').append(repoDiv);
-        $(`#${name}`).addClass('divRepo');
+        $(`#bg${name}`).append(repoDiv);
+        $(`#${name}`).addClass('teste');
     }
 
-    $addRepositoryHeader = function(name){
+    $addRepositoryHeader = function(name, isFork){
         let parentDiv = `#${name}`;
 
+        
+        if(isFork){
+            $(`<i class='fas fa-code-branch'></i>`, {
+                style: 'display: inline-block'
+            }).appendTo(parentDiv);
+        }
+
+        let h3Style = 'display: inline-block;';
+        h3Style += isFork ? 'margin-left: 6px' : '';
         $('<h3/>', {
             text: `${name}`,
+            style: h3Style
         }).appendTo(parentDiv);
     }
-
 
     $addIconText = function(ico, text){
         let iconDiv = document.createElement('div');
@@ -118,18 +127,17 @@ $(function(){
     }
 
     $addRepository = function(name, description, language, stars, forks, isFork){
-        if(isFork) return;
-
         //Caso a quantidade de repositórios for ímpar, adiciona div vazia
         if(name == null){
-            $addRepositoryDiv();
+            $addRepositoryBackground();
             return;
         }
-        
-        qtdRepos++;
 
-        $addRepositoryDiv(name);    
-        $addRepositoryHeader(name);
+        description = description == null ? '' : description;
+
+        $addRepositoryBackground(name);
+        $addRepositoryDiv(name);
+        $addRepositoryHeader(name, isFork);
         $addParagraph(name, description);
         $addRepositoryInfo(name, language, stars, forks);
     }
