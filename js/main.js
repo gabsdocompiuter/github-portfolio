@@ -73,10 +73,16 @@ $(function(){
     }
 
     $addRepositoryBackground = function(name){
+        let repoLink = document.createElement('a');
+        repoLink.setAttribute('href', 'http://google.com');
+        repoLink.setAttribute('target', '_blank');
+
         let repoDiv = document.createElement('div');
         repoDiv.setAttribute('id', `bg${name}`);
 
-        $('#repos').append(repoDiv);
+        repoLink.appendChild(repoDiv)
+
+        $('#repos').append(repoLink);
         $(`#bg${name}`).addClass('divRepo');
     }
 
@@ -96,7 +102,6 @@ $(function(){
 
     $addRepositoryHeader = function(name, isFork){
         let parentDiv = `#${name}`;
-
         
         if(isFork){
             $(`<i/>`, {
