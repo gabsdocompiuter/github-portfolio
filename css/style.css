@@ -6,6 +6,18 @@
     --repositories-magin-left: calc(var(--profile-width) + 15px);
 }
 
+::-webkit-scrollbar {width:5px;height:5px;}
+::-webkit-scrollbar-track {background:var(--bg-color);}
+::-webkit-scrollbar-thumb {background:var(--text-color);}:root {
+  --bg-color: rgb(10, 10, 10);
+  --text-color: rgba(255, 255, 255, 0.589);
+  --blog-gray-color: rgba(180, 180, 180, 0.267);
+  --background-image: linear-gradient(90deg, rgba(10, 10, 10, 0.6), rgb(10, 10, 10, 1)), url("https://www.nextthursday.com.au/wp-content/uploads/2018/05/Dark-bg.jpg");
+  --background-background: linear-gradient(0deg, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0.6)),
+    url("https://www.nextthursday.com.au/wp-content/uploads/2018/05/Dark-bg.jpg") center center fixed;
+  --height: 50vh;
+}
+
 /*Desktop*/
 @media only screen and (min-width: 768px){
     body{
@@ -71,10 +83,44 @@
         padding: 20px;
     }
 
-    .testeRepo{
+    .divEmptyRepo{
         margin-bottom: 20px;
-        border: solid 4px blue;
-        
-        height: 100px;
+        height: 150px;
+    }
+
+    .divRepo{
+        margin-bottom: 20px;
+        padding-left: 15px;
+
+        background-color: black;
+        border-radius: 10px;
+        position: relative;
+        height: 150px;
+    }
+    
+    .teste{
+        position: absolute;
+        top: calc(50% - 10px);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+    }
+    
+    .divRepo h3{
+        margin-bottom: 3px;
+    }
+    
+    .divRepo p{
+        margin-top: 0;
+        padding-bottom: 15px;
+    }
+
+    .infoDiv{
+        /*margin-left: 7px;*/
+    }
+    
+    .infoDiv div{
+        display: inline-block;
+        margin-right: 15px;
     }
 }
