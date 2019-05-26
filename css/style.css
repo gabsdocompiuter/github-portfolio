@@ -21,12 +21,38 @@
 
 body{
     font-family: Rubik, Arial, Helvetica, sans-serif;
+    color: white;
 
     background: url("../img/bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.infoContainer{
+    width: 100%;
+}
+
+.profileInfo{
+    text-align: center;
+}
+
+.profilePic{
+    max-width: 500px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profileUser{
+    font-size: 4ex;
+    margin: 0;
+}
+
+.profileBio{
+    margin-top: 7;
+    
+    font-size: 2.5ex;
 }
 
 /*Desktop*/
@@ -43,9 +69,6 @@ body{
     }
 
     body{
-
-        color:white;
-
         position: relative;
         padding-bottom: 6rem;
         min-height: 100%;
@@ -62,31 +85,12 @@ body{
     
     .profileInfo{
         width: var(--profile-width);
-        text-align: center;
-
+        
         margin: 0;
         position: absolute;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-    }
-
-    .profilePic{
-        max-width: 500px;
-        height: 100px;
-        border-radius: 50%;
-    }
-
-    .profileUser{
-        font-size: 4ex;
-        margin: 0;
-    }
-
-    .profileBio{
-        margin-top: 7;
-        
-        font-size: 2.5ex;
-
     }
 
     .repoContainer{
