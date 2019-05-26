@@ -86,7 +86,7 @@ $(function(){
         repoDiv.setAttribute('id', name);
 
         $(`#bg${name}`).append(repoDiv);
-        $(`#${name}`).addClass('teste');
+        $(`#${name}`).addClass('repoInsideDiv');
     }
 
     $addRepositoryHeader = function(name, isFork){
@@ -126,7 +126,9 @@ $(function(){
         let infoDiv = document.createElement('div');
         infoDiv.setAttribute('class', 'infoDiv');
         
-        infoDiv.appendChild($addIconText('laptop-code', language))
+        if(language != null){
+            infoDiv.appendChild($addIconText('laptop-code', language));
+        }
         infoDiv.appendChild($addIconText('star', stars));
         infoDiv.appendChild($addIconText('code-branch', forks));
 

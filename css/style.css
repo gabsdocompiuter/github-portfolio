@@ -32,7 +32,6 @@
         position: fixed;
         float: left;
         margin-left: 10px;
-        border: solid 4px green;
         
         height: var(--profile-height);
         width: var(--profile-width);
@@ -76,7 +75,6 @@
     }
 
     .repos{
-        border: solid 4px red;
         margin-left: var(--repositories-magin-left);
         columns: 2;
         column-gap: 40px;
@@ -94,11 +92,18 @@
 
         background-color: black;
         border-radius: 10px;
+        opacity: 0.7;
+
         position: relative;
         height: 150px;
     }
+    .divRepo:hover {
+        opacity: 1.0;
+        transition: 0.5s;
+        transform: scale(1.01);
+      }
     
-    .teste{
+    .repoInsideDiv{
         position: absolute;
         top: calc(50% - 10px);
         -ms-transform: translateY(-50%);
