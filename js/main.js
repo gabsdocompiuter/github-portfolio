@@ -1,4 +1,4 @@
-let user = 'alexei350';
+let user = 'gmonteeeiro';
 
 getProfile();
 getRepositories();
@@ -86,7 +86,7 @@ $(function(){
         repoDiv.setAttribute('id', name);
 
         $(`#bg${name}`).append(repoDiv);
-        $(`#${name}`).addClass('teste');
+        $(`#${name}`).addClass('repoInsideDiv');
     }
 
     $addRepositoryHeader = function(name, isFork){
